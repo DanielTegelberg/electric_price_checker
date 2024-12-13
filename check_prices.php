@@ -69,11 +69,11 @@ if (!empty($highPrices)) {
     $message = "
 <html>
 <head>
-<title>Varning höga elpriser</title>
+<title>Varning hÃ¶ga elpriser</title>
 </head>
 <body>
-<h2>Höga elpriser imorgon ($nextDayMail)</h2>
-<p>Följande timmar har priser över $priceThreshold kr/kWh:</p>
+<h2>HÃ¶ga elpriser imorgon ($nextDayMail)</h2>
+<p>FÃ¶ljande timmar har priser Ã¶ver $priceThreshold kr/kWh:</p>
 <ul>
 ";
 
@@ -83,7 +83,7 @@ foreach ($highPrices as $hour => $price) {
 
 $message .= "
 </ul>
-<p>Vänligen försök att reducera användningen av laddstolpen under timmarna ovan för att spara kostnader.</p>
+<p>VÃ¤nligen fÃ¶rsÃ¶k att reducera anvÃ¤ndningen av laddstolpen under timmarna ovan fÃ¶r att spara kostnader.</p>
 </body>
 </html>
 ";
@@ -108,7 +108,7 @@ try {
     }
     
     $mail->isHTML(true);
-    $mail->Subject = "Varning för höga elpriser för $nextDayMail";
+    $mail->Subject = "Varning fÃ¶r hÃ¶ga elpriser fÃ¶r $nextDayMail";
     $mail->Body    = $message;
 
     $mail->send();
