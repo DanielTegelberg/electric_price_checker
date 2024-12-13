@@ -101,8 +101,10 @@ try {
 
     $mail->setFrom($_ENV['EMAIL_USERNAME'], $_ENV['EMAIL_FROM_NAME']);
 
-    foreach ($_ENV['EMAIL_RECIPIENTS'] as $recipient) {
-        $mail->addAddress($recipient);
+    $emailRecipientsArray = explode(',', $_ENV['EMAIL_RECIPIENTS']);
+
+    foreach ($emailRecipientsArray as $recipient) {
+        $mail->addAddress(trim($recipient));
     }
     
     $mail->isHTML(true);
@@ -111,7 +113,7 @@ try {
 
     $mail->send();
     echo "Alert emails sent.\n";
-    $emailRecipientsString = implode(',', $config['email_recipients']);
+    $emailRecipientsString = implode(',', $emailRecipientsArray);
     logMessage("Alert emails sent to receivers: $emailRecipientsString");
 } catch (Exception $e) {
     $errorMessage = "Email could not be sent. Mailer Error: {$mail->ErrorInfo}";
