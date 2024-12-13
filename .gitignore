@@ -1,0 +1,19 @@
+# Ignore vendor folder and Composer lock file
+/vendor
+composer.lock
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore environment configuration files
+.env
+
+# Ignore IDE and editor settings
+.idea/
+.vscode/
+*.log
+
+# specific files
+index.php
+daniel.jpg
