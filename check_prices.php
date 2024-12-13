@@ -99,6 +99,9 @@ try {
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = $_ENV['SMTP_PORT'];
 
+    $mail->CharSet = 'UTF-8';
+    $mail->Encoding = 'base64';
+
     $mail->setFrom($_ENV['EMAIL_USERNAME'], $_ENV['EMAIL_FROM_NAME']);
 
     $emailRecipientsArray = explode(',', $_ENV['EMAIL_RECIPIENTS']);
