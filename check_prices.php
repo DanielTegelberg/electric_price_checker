@@ -1,6 +1,6 @@
 <?php
 
-require 'vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -26,11 +26,8 @@ function logMessage($message) {
     echo $logEntry;
 }
 
-logMessage("Script execution started.");
-
 $nextDay = date('Y/m-d', strtotime('+1 day'));
 $apiUrl = $config['api_base_url'] . "$nextDay" . "_" . $config['region'] . ".json";
-logMessage("Generated API URL: $apiUrl");
 
 // Fetch API Data
 $jsonData = file_get_contents($apiUrl);
@@ -39,16 +36,12 @@ if ($jsonData === false) {
     die("Failed to fetch the API data.");
 }
 
-logMessage("API data fetched successfully.");
-
 // Decode and Process API Data
 $data = json_decode($jsonData, true);
 if ($data === null) {
     logMessage("Failed to decode JSON data from $apiUrl.");
     die("Failed to decode JSON data.");
 }
-
-logMessage("API data decoded successfully.");
 
 $highPrices = [];
 foreach ($data as $priceInfo) {
