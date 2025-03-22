@@ -83,7 +83,7 @@ foreach ($highPrices as $hour => $price) {
 
 $message .= "
 </ul>
-<p>Vänligen försök att reducera användningen av laddstolpen under timmarna ovan för att spara kostnader.</p>
+<p>Vänligen försök att reducera elanvändningen under timmarna ovan för att spara kostnader.</p>
 </body>
 </html>
 ";
